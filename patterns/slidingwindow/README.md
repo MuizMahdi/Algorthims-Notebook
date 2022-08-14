@@ -1,10 +1,17 @@
 # Sliding Window Pattern
 The sliding window pattern is used to solve sub-array (or sub-lists) problems, in which we need to perform some calculation
-or processing among all or some of the sub-arrays of a given size.
+or an action among all or some of the sub-arrays of a given size.
 
-[Pattern explanation video](https://www.youtube.com/watch?v=GcW4mgmgSbw)
+#### [Pattern explanation video](https://www.youtube.com/watch?v=GcW4mgmgSbw)
 
-### Examples
+![Sliding Window](resources/SlidingWindow_01.png "Sliding Window")
+
+In some cases, the size of the sliding window is not fixed, and it needs to be expanded or shrank based on the problem
+constraints, giving us two variants of sliding windows:
+1. Fixed windows
+2. Variable windows
+
+### Examples of Use Cases
 - Finding the average of all contiguous sub-arrays of length K in an array.
 - Finding the sum of each sub-array of length K in an array.
 
@@ -19,8 +26,51 @@ or processing among all or some of the sub-arrays of a given size.
 
 ### Pattern Template
 ```java
+/**
+ * Time complexity: O(n)
+ *      Where n = number of elements in the array.
+ * Approach:
+ *      Let k = window size, arrLength = array length 
+ *      1. Get number of windows => (arrLength - k + 1)
+ *      2. Create results array with length of => (numOfWindows)
+ *      3. Loop through all array elements
+ *          3.1. Add the element at the end
+ *          3.2. Once the end of the first window is reached and from that point and on => (i >= k - 1):
+ *              3.2.1. Do whatever we want with the window
+ *              3.2.2. Subtract element from at the start
+ *              3.2.3. Slide the window by moving the start pointer, since end pointer is already moved via loop              
+ */
+double[] findAverages(int k, int[] arr) {
+    int numOfWindows = arr.length - k + 1;
+    double[] results = new double[numOfWindows];
+    double sum = 0;
+    
+    int start = 0;
+    // Loop through arr elements, moving the end of the window
+    for (int end = 0; end < arr.length; end++) {
+        
+        // Add element at the end
+        sum += arr[end];
 
+        // Once we reach, and starting from the end of first window and along (that's when window starts sliding)
+        int firstWindowEndIdx = k - 1;
+        if (end >= firstWindowEndIdx) {
+            
+            // Get average and add it to results list
+            double avg = sum / k;
+            results[start] = avg;
+            
+            // Subtrack the element at the start
+            sum -= arr[start];
 
+            // Slide the window by moving the start pointer (end pointer moved via loop)
+            start++;
+            
+        }
+    }
+    
+    return results;
+}
 ```
 
 <br>
@@ -44,7 +94,7 @@ or processing among all or some of the sub-arrays of a given size.
  */
 double[] findAverages(int k, int[] arr) {
     int numOfWindows = arr.length - k + 1;
-    double[] result = new double[numOfWindows];
+    double[] results = new double[numOfWindows];
     for (int i = 0; i <= arr.length - k; i++) {
         double sum = 0;
         for (int j = i; j < i + k; j++) {
@@ -52,7 +102,7 @@ double[] findAverages(int k, int[] arr) {
         }
         result[i] = sum / k;
     }
-    return result;
+    return results;
 }
 ```
 
