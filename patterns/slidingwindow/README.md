@@ -8,8 +8,8 @@ or an action among all or some of the sub-arrays of a given size.
 
 In some cases, the size of the sliding window is not fixed, and it needs to be expanded or shrank based on the problem
 constraints, giving us two variants of sliding windows:
-1. Fixed windows
-2. Variable windows
+## 1. Fixed-sized sliding windows 
+Useful for finding contiguous sub-array of length K that matches a condition.
 
 ### Examples of Use Cases
 - Finding the average of all contiguous sub-arrays of length K in an array.
@@ -19,12 +19,18 @@ constraints, giving us two variants of sliding windows:
 
 ### Steps
 1. Establish the size of the window.
-2. Compute the result for the 1st window (from the start of the data structure).
-3. Use a loop to slide the window by 1, and keep computing the result for each window.
+2. Loop through the elements of the array.
+3. Slide the window by moving the window end pointer.
+4. Do whatever we want with the current window's elements.
+5. Slide the window by moving the window start pointer.
+
+## 2. Dynamically-sized sliding windows 
+Useful for finding the **largest** or **smallest** contiguous sub-array that matches some sort of condition.
 
 <br>
 
-### Pattern Template
+### Pattern Templates
+#### 1. Fixed Sized Sliding Window (averages of sub-arrays of size k)
 ```java
 /**
  * Time complexity: O(n)
@@ -72,6 +78,56 @@ double[] findAverages(int k, int[] arr) {
     return results;
 }
 ```
+
+#### 2. Dynamically Sized Sliding Window ()
+```java
+/**
+ * Time complexity: O(n)
+ *      Where n = number of elements in the array.
+ * Approach:
+ *      Let k = window size, arrLength = array length 
+ *      1. Get number of windows => (arrLength - k + 1)
+ *      2. Create results array with length of => (numOfWindows)
+ *      3. Loop through all array elements
+ *          3.1. Add the element at the end
+ *          3.2. Once the end of the first window is reached and from that point and on => (i >= k - 1):
+ *              3.2.1. Do whatever we want with the window
+ *              3.2.2. Subtract element from at the start
+ *              3.2.3. Slide the window by moving the start pointer, since end pointer is already moved via loop              
+ */
+double[] findAverages(int k, int[] arr) {
+    int numOfWindows = arr.length - k + 1;
+    double[] results = new double[numOfWindows];
+    double sum = 0;
+    
+    int start = 0;
+    // Loop through arr elements, moving the end of the window
+    for (int end = 0; end < arr.length; end++) {
+        
+        // Add element at the end
+        sum += arr[end];
+
+        // Once we reach, and starting from the end of first window and along (that's when window starts sliding)
+        int firstWindowEndIdx = k - 1;
+        if (end >= firstWindowEndIdx) {
+            
+            // Get average and add it to results list
+            double avg = sum / k;
+            results[start] = avg;
+            
+            // Subtrack the element at the start
+            sum -= arr[start];
+
+            // Slide the window by moving the start pointer (end pointer moved via loop)
+            start++;
+            
+        }
+    }
+    
+    return results;
+}
+```
+
 
 <br>
 

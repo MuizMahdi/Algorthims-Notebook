@@ -1,15 +1,21 @@
-package patterns.slidingwindow;
+package patterns.slidingwindow.problems;
+import utils.Utils;
+
 import java.util.Arrays;
 import java.util.logging.Logger;
 
+/**
+ * Given an array of positive numbers and a positive number K,
+ * find the average of all contiguous sub-arrays of size K in it.
+ */
 public class AveragesOfSubArraysOfSizeK {
-
     private static final Logger log = Logger.getLogger(AveragesOfSubArraysOfSizeK.class.getSimpleName());
 
     public static void main(String[] args) {
         int size = 5;
-        int[] arr = new int[] {1, 3, 2, 6, -1, 4, 1, 8, 2};
-        log.info(Arrays.toString(findAverages(size, arr)));
+        var arr = new int[] {1, 3, 2, 6, -1, 4, 1, 8, 2};
+        var result = new double[] {2.2, 2.8, 2.4, 3.6, 2.8};
+        log.info(Utils.equal(Arrays.toString(findAverages(size, arr)), Arrays.toString(result)));
     }
 
     private static double[] findAverages(int k, int[] arr) {
@@ -43,5 +49,4 @@ public class AveragesOfSubArraysOfSizeK {
 
         return averages;
     }
-
 }
