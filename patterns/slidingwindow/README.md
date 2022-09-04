@@ -29,7 +29,7 @@ Useful for finding the **largest** or **smallest** contiguous sub-array that mat
 
 <br>
 
-### Pattern Templates
+## Pattern Templates
 #### 1. Fixed Sized Sliding Window (averages of sub-arrays of size k)
 ```java
 /**
@@ -46,36 +46,40 @@ Useful for finding the **largest** or **smallest** contiguous sub-array that mat
  *              3.2.2. Subtract element from at the start
  *              3.2.3. Slide the window by moving the start pointer, since end pointer is already moved via loop              
  */
-double[] findAverages(int k, int[] arr) {
-    int numOfWindows = arr.length - k + 1;
-    double[] results = new double[numOfWindows];
-    double sum = 0;
+class SlidingWindow() {
     
-    int start = 0;
-    // Loop through arr elements, moving the end of the window
-    for (int end = 0; end < arr.length; end++) {
-        
-        // Add element at the end
-        sum += arr[end];
+    double[] findAverages(int k, int[] arr) {
+        int numOfWindows = arr.length - k + 1;
+        double[] results = new double[numOfWindows];
+        double sum = 0;
 
-        // Once we reach, and starting from the end of first window and along (that's when window starts sliding)
-        int firstWindowEndIdx = k - 1;
-        if (end >= firstWindowEndIdx) {
-            
-            // Get average and add it to results list
-            double avg = sum / k;
-            results[start] = avg;
-            
-            // Subtrack the element at the start
-            sum -= arr[start];
+        int start = 0;
+        // Loop through arr elements, moving the end of the window
+        for (int end = 0; end < arr.length; end++) {
 
-            // Slide the window by moving the start pointer (end pointer moved via loop)
-            start++;
-            
+            // Add element at the end
+            sum += arr[end];
+
+            // Once we reach, and starting from the end of first window and along (that's when window starts sliding)
+            int firstWindowEndIdx = k - 1;
+            if (end >= firstWindowEndIdx) {
+
+                // Get average and add it to results list
+                double avg = sum / k;
+                results[start] = avg;
+
+                // Subtrack the element at the start
+                sum -= arr[start];
+
+                // Slide the window by moving the start pointer (end pointer moved via loop)
+                start++;
+
+            }
         }
+
+        return results;
     }
     
-    return results;
 }
 ```
 
@@ -95,36 +99,40 @@ double[] findAverages(int k, int[] arr) {
  *              3.2.2. Subtract element from at the start
  *              3.2.3. Slide the window by moving the start pointer, since end pointer is already moved via loop              
  */
-double[] findAverages(int k, int[] arr) {
-    int numOfWindows = arr.length - k + 1;
-    double[] results = new double[numOfWindows];
-    double sum = 0;
+class SlidingWindow() {
     
-    int start = 0;
-    // Loop through arr elements, moving the end of the window
-    for (int end = 0; end < arr.length; end++) {
-        
-        // Add element at the end
-        sum += arr[end];
+    double[] findAverages(int k, int[] arr) {
+        int numOfWindows = arr.length - k + 1;
+        double[] results = new double[numOfWindows];
+        double sum = 0;
 
-        // Once we reach, and starting from the end of first window and along (that's when window starts sliding)
-        int firstWindowEndIdx = k - 1;
-        if (end >= firstWindowEndIdx) {
-            
-            // Get average and add it to results list
-            double avg = sum / k;
-            results[start] = avg;
-            
-            // Subtrack the element at the start
-            sum -= arr[start];
+        int start = 0;
+        // Loop through arr elements, moving the end of the window
+        for (int end = 0; end < arr.length; end++) {
 
-            // Slide the window by moving the start pointer (end pointer moved via loop)
-            start++;
-            
+            // Add element at the end
+            sum += arr[end];
+
+            // Once we reach, and starting from the end of first window and along (that's when window starts sliding)
+            int firstWindowEndIdx = k - 1;
+            if (end >= firstWindowEndIdx) {
+
+                // Get average and add it to results list
+                double avg = sum / k;
+                results[start] = avg;
+
+                // Subtrack the element at the start
+                sum -= arr[start];
+
+                // Slide the window by moving the start pointer (end pointer moved via loop)
+                start++;
+
+            }
         }
+
+        return results;
     }
     
-    return results;
 }
 ```
 
@@ -148,17 +156,21 @@ double[] findAverages(int k, int[] arr) {
  *      4. Loop through window, starting from element i, until:
  *          i + k (last element in current window)
  */
-double[] findAverages(int k, int[] arr) {
-    int numOfWindows = arr.length - k + 1;
-    double[] results = new double[numOfWindows];
-    for (int i = 0; i <= arr.length - k; i++) {
-        double sum = 0;
-        for (int j = i; j < i + k; j++) {
-            sum += arr[j];
+class SlidingWindow() {
+    
+    double[] findAverages(int k, int[] arr) {
+        int numOfWindows = arr.length - k + 1;
+        double[] results = new double[numOfWindows];
+        for (int i = 0; i <= arr.length - k; i++) {
+            double sum = 0;
+            for (int j = i; j < i + k; j++) {
+                sum += arr[j];
+            }
+            result[i] = sum / k;
         }
-        result[i] = sum / k;
+        return results;
     }
-    return results;
+    
 }
 ```
 

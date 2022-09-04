@@ -17,16 +17,27 @@ public class MaximumSumSubArrayOfSizeK {
     private static long findMaxSum(int k, int[] arr) {
         long maxSum = 0;
         long winSum = 0;
-        int start = 0;
 
+        int start = 0;
         for (int end = 0; end < arr.length; end++) {
+
+            // Add the end
             winSum += arr[end];
+
             int firstWindowEndIdx = k - 1;
             if (end >= firstWindowEndIdx) {
+
+                // Compare current window sum with the max sum
                 maxSum = Math.max(maxSum, winSum);
+
+                // Remove the start
                 winSum -= arr[start];
+
+                // Slide
                 start++;
+
             }
+
         }
 
         return maxSum;

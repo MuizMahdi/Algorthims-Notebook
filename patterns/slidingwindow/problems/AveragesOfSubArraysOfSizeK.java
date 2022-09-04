@@ -22,9 +22,9 @@ public class AveragesOfSubArraysOfSizeK {
         int numOfWindows = arr.length - k + 1;
         double[] averages = new double[numOfWindows];
 
-        int start = 0;
         double sum = 0;
 
+        int start = 0;
         for (int end = 0; end < arr.length; end++) {
 
             // Update sum as we go
