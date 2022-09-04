@@ -1,4 +1,5 @@
-package patterns.slidingwindow.problems.dynamicallysized;
+package patterns.slidingwindow.problems.dynamicallysized.easy;
+
 import utils.Utils;
 
 import java.util.logging.Logger;
