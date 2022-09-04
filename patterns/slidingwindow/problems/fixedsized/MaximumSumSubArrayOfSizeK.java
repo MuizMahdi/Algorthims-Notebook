@@ -1,4 +1,4 @@
-package patterns.slidingwindow.problems;
+package patterns.slidingwindow.problems.fixedsized;
 import java.util.logging.Logger;
 import utils.Utils;
 
