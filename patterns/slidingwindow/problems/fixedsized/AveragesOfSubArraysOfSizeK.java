@@ -13,7 +13,7 @@ public class AveragesOfSubArraysOfSizeK {
 
     public static void main(String[] args) {
         int size = 5;
-        var arr = new int[] {1, 3, 2, 6, -1, 4, 1, 8, 2};
+        var arr = new int[]{1, 3, 2, 6, -1, 4, 1, 8, 2};
         var result = new double[] {2.2, 2.8, 2.4, 3.6, 2.8};
         log.info(Utils.equal(Arrays.toString(findAverages(size, arr)), Arrays.toString(result)));
     }
