@@ -1,4 +1,4 @@
-package patterns.prefixsum.problems.medium;
+package topics.arraysandhashing.patterns.prefixsum.problems.medium;
 
 import java.util.Arrays;
 import java.util.logging.Logger;

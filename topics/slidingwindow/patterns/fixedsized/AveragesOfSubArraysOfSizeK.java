@@ -1,4 +1,4 @@
-package patterns.slidingwindow.problems.fixedsized;
+package topics.slidingwindow.patterns.fixedsized;
 import utils.Utils;
 
 import java.util.Arrays;

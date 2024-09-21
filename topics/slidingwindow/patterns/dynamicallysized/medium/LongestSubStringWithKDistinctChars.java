@@ -1,9 +1,8 @@
-package patterns.slidingwindow.problems.dynamicallysized.medium;
+package topics.slidingwindow.patterns.dynamicallysized.medium;
 
 import utils.Utils;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 /**

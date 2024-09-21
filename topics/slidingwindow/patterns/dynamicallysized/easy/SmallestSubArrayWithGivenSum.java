@@ -1,4 +1,4 @@
-package patterns.slidingwindow.problems.dynamicallysized.easy;
+package topics.slidingwindow.patterns.dynamicallysized.easy;
 
 import utils.Utils;
 

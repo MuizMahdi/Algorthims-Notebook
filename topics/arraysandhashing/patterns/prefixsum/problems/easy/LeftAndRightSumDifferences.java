@@ -1,9 +1,8 @@
-package patterns.prefixsum.problems.easy;
+package topics.arraysandhashing.patterns.prefixsum.problems.easy;
 
 import utils.Problem;
 
 import java.util.Arrays;
-import java.util.logging.Logger;
 
 /**
  * <p>
