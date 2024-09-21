@@ -1,4 +1,4 @@
-package generic.easy;
+package topics.generic.problems.easy;
 
 import utils.Utils;
 
