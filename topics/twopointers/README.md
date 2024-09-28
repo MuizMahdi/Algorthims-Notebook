@@ -205,7 +205,7 @@ class SlidingWindow() {
 
 <br>
 
-### Neetcode + Blind 75 + Grokking Problems
+### Neetcode + Blind/Grind 75 + Company Specific
 #### Easy
 - [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
@@ -225,5 +225,9 @@ class SlidingWindow() {
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/)
+
+#### Google - Medium
+- 3Sum
+- 
 
 ### [More Sliding Window Problems (73)](https://leetcode.com/tag/sliding-window/)

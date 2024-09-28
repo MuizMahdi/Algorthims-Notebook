@@ -22,14 +22,14 @@ public class ProductOfArrayExceptSelf {
 
 		int prefix = 1;
 		for (int i = 0; i < nums.length; i++) {
-			result[i] = prefix;
-			prefix *= nums[i];
+			result[i] = prefix; // Set the prefix in the results array
+			prefix *= nums[i]; // Update the current prefix
 		}
 
 		int postfix = 1;
 		for (int i = nums.length-1; i >= 0; i--) {
-			result[i] *= postfix;
-			postfix *= nums[i];
+			result[i] *= postfix; // Multiply postfix with what we already have (the prefix)
+			postfix *= nums[i]; // Update the postfix
 		}
 
 		return result;
