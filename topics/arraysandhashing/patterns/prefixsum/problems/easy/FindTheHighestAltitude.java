@@ -29,6 +29,7 @@ public class FindTheHighestAltitude extends Problem {
 		int[] input = {-4,-3,-2,-1,4,3,2};
 		int output = 0;
 		log(largestAltitudeB(input) == output);
+		String s = "";
 	}
 
 	public static int largestAltitude(int[] gain) {

@@ -60,7 +60,7 @@ Useful for finding the **largest** or **smallest** contiguous sub-array that mat
 class FixedSlidingWindow() {
     
     double[] findAverages(int k, int[] arr) {
-        int numOfWindows = arr.length - k + 1;
+        int numOfWindows = arr.length - k + 1; // Subtracting k: to exclude elements in the first window. // Adding 1: to count the first window
         double[] results = new double[numOfWindows];
         double sum = 0;
 
